@@ -37,7 +37,7 @@ __DATA__
 
 =head1 NAME
 
-App::Git::Workflow::Command::TakeMine - <One-line description of module's purpose>
+App::Git::Workflow::Command::TakeMine - Resolve merge confilicts with taking only one side of the conflict
 
 =head1 VERSION
 
