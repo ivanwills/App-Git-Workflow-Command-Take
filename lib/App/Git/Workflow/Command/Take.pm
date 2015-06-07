@@ -14,7 +14,7 @@ use English qw/ -no_match_vars /;
 use App::Git::Workflow;
 use App::Git::Workflow::Command qw/get_options/;
 
-our $VERSION  = 0.2;
+our $VERSION  = 0.1;
 our $workflow = App::Git::Workflow->new;
 our ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
 our %option;
@@ -41,7 +41,7 @@ App::Git::Workflow::Command::Take - Resolve merge confilicts with taking only on
 
 =head1 VERSION
 
-This documentation refers to git-take-mine version 0.2
+This documentation refers to git-take-mine version 0.1
 
 =head1 SYNOPSIS
 
