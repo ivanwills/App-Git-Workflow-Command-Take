@@ -1,4 +1,4 @@
-package App::Git::Workflow::Command::TakeMine;
+package App::Git::Workflow::Command::Take;
 
 # Created on: 2015-06-05 11:38:28
 # Create by:  Ivan Wills
@@ -37,7 +37,7 @@ __DATA__
 
 =head1 NAME
 
-App::Git::Workflow::Command::TakeMine - Resolve merge confilicts with taking only one side of the conflict
+App::Git::Workflow::Command::Take - Resolve merge confilicts with taking only one side of the conflict
 
 =head1 VERSION
 

@@ -8,9 +8,9 @@
 
 use strict;
 use warnings;
-use App::Git::Workflow::Command::TakeMine;
+use App::Git::Workflow::Command::Take;
 
-App::Git::Workflow::Command::TakeMine->run();
+App::Git::Workflow::Command::Take->run();
 
 __DATA__
 
