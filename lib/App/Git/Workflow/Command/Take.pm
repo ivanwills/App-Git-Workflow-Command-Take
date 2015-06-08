@@ -13,6 +13,7 @@ use Data::Dumper qw/Dumper/;
 use English qw/ -no_match_vars /;
 use App::Git::Workflow;
 use App::Git::Workflow::Command qw/get_options/;
+use Path::Tiny;
 
 our $VERSION  = 0.1;
 our $workflow = App::Git::Workflow->new;
@@ -25,11 +26,66 @@ sub run {
     get_options(
         \%option,
         'quiet|q',
+        'ours|mine',
+        'theirs',
     );
+
+    my @conflicts = (
+        map  { /^ \s+ both \s modified: \s+(.*)$/xms; $1 }
+        grep { /^ \s+ both \s modified: \s+/xms }
+        $workflow->git->status()
+    );
+
+    if (!@ARGV) {
+        @ARGV = ('./');
+    }
+
+    CONFLICT:
+    for my $conflict (@conflicts) {
+
+        PATH:
+        for my $path (@ARGV) {
+            $path =~ s{^[.]/}{};
+            next PATH unless $conflict =~ /^\Q$path\E/;
+
+            resolve($conflict);
+
+            next CONFLICT;
+        }
+    }
 
     return;
 }
 
+sub resolve {
+    my ($file) = @_;
+
+    print "Resolving $file\n";
+
+    my %states = (
+        ours   => qr/^<<<<<<</,
+        theirs => qr/^=======/,
+        keep   => qr/^>>>>>>>/,
+    );
+    my $state = 'keep';
+    my $side  = $option{theirs} ? 'theirs' : 'ours';
+    my $read  = path($file)->openr;
+    my $tmp   = path($file . '.tmp');
+    my $write = $tmp->openw;
+
+    LINE:
+    while (my $line = <$read>) {
+        warn $state;
+        for my $check (keys %states) {
+            if ( $line =~ /$states{$check}/ ) {
+                $state = $check;
+                next LINE;
+            }
+        }
+
+        print {$write} $line if $state eq 'keep' || $state eq $side;
+    }
+}
 
 1;
 
@@ -45,10 +101,12 @@ This documentation refers to git-take-mine version 0.1
 
 =head1 SYNOPSIS
 
-   git-take-mine [option]
+   git-take-mine [option] [path_or_file]
 
  OPTIONS:
   -q --quiet    Suppress notifying of files changed
+     --ours     Take choanges from current branch throwing away other branches changes
+     --theirs   Take changes from merging branch throwing away current branches changes
 
   -v --verbose  Show more detailed option
      --VERSION  Prints the version information
