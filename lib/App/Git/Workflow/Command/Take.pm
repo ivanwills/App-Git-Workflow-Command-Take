@@ -89,6 +89,7 @@ sub resolve {
 
     unlink $file;
     copy $tmp, $file;
+    unlink $tmp;
 
     return;
 }
