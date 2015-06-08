@@ -76,7 +76,6 @@ sub resolve {
 
     LINE:
     while (my $line = <$read>) {
-        warn $state;
         for my $check (keys %states) {
             if ( $line =~ /$states{$check}/ ) {
                 $state = $check;
@@ -87,6 +86,7 @@ sub resolve {
         print {$write} $line if $state eq 'keep' || $state eq $side;
     }
 
+    close $write;
     unlink $file;
     copy $tmp, $file;
     unlink $tmp;
