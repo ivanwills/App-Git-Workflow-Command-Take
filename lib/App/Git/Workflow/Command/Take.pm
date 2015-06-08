@@ -14,6 +14,7 @@ use English qw/ -no_match_vars /;
 use App::Git::Workflow;
 use App::Git::Workflow::Command qw/get_options/;
 use Path::Tiny;
+use File::Copy qw/copy/;
 
 our $VERSION  = 0.1;
 our $workflow = App::Git::Workflow->new;
@@ -85,6 +86,11 @@ sub resolve {
 
         print {$write} $line if $state eq 'keep' || $state eq $side;
     }
+
+    unlink $file;
+    copy $tmp, $file;
+
+    return;
 }
 
 1;
