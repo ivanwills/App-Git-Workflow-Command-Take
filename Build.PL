@@ -3,10 +3,10 @@ use warnings;
 use Module::Build;
 
 my $builder = Module::Build->new(
-	module_name       => 'App::Git::Workflow::Command::TakeMine',
+	module_name       => 'App::Git::Workflow::Command::Take',
 	license           => 'perl',
 	dist_author       => 'Ivan Wills <ivan.wills@gmail.com>',
-	dist_version_from => 'lib/App/Git/Workflow/Command/TakeMine.pm',
+	dist_version_from => 'lib/App/Git/Workflow/Command/Take.pm',
 	requires          => {
 		'perl'             => 5.008,
 	},
@@ -14,13 +14,13 @@ my $builder = Module::Build->new(
 		'Test::More'     => 0,
 		'Test::Warnings' => 0,
 	},
-	add_to_cleanup     => [ 'App-Git-Workflow-Command-TakeMine-*' ],
+	add_to_cleanup     => [ 'App-Git-Workflow-Command-Take-*' ],
 	create_makefile_pl => 'traditional',
 	create_license     => 1,
 	meta_merge => {
 		resources => {
-			repository => 'git://github.com/ivanwills/App-Git-Workflow-Command-TakeMine.git',
-			bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=App::Git::Workflow::Command::TakeMine',
+			repository => 'git://github.com/ivanwills/App-Git-Workflow-Command-Take.git',
+			bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=App::Git::Workflow::Command::Take',
 		},
 	},
 );

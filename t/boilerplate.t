@@ -58,5 +58,6 @@ subtest 'Changes' => sub {
     );
 };
 
-module_boilerplate_ok('lib/App/Git/Workflow/Command/TakeMine.pm');
+module_boilerplate_ok('bin/git-take');
+module_boilerplate_ok('lib/App/Git/Workflow/Command/Take.pm');
 done_testing();
