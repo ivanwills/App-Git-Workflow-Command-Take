@@ -13,4 +13,3 @@ use App::Git::Workflow::Command::Take;
 App::Git::Workflow::Command::Take->run();
 
 __DATA__
-
