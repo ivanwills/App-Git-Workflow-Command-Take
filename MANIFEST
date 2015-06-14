@@ -1,7 +1,7 @@
 bin/1
 Build.PL
 Changes
-lib/App/Git/Workflow/Command/TakeMine.pm
+lib/App/Git/Workflow/Command/Take.pm
 LICENSE
 Makefile.PL
 MANIFEST

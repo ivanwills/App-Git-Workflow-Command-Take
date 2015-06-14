@@ -60,4 +60,4 @@ Debian_CPANTS.txt
 \bnytprof*
 
 # Avoid archives of this distribution
-\bApp-Git-Workflow-Command-TakeMine-[\d\.\_]+
+\bApp-Git-Workflow-Command-Take-[\d\.\_]+
