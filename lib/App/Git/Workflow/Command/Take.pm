@@ -125,6 +125,14 @@ This documentation refers to git-take-mine version 0.1
 
 =head1 SUBROUTINES/METHODS
 
+=head2 C<run ()>
+
+Finds the conflicted files to resolve
+
+=head2 C<resolve ($file)>
+
+Resolves conflicts in C<$file> in favor of C<--ours> or C<--theirs>.
+
 =head1 DIAGNOSTICS
 
 =head1 CONFIGURATION AND ENVIRONMENT
