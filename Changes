@@ -1,5 +1,20 @@
 Revision history for App-Git-Workflow-Command-Take
 
-0.0.1   Date/time
-        First version, released on an unsuspecting world.
-
+0.1     2015-06-14
+        Fixed more left over name change issues (Ivan Wills)
+        Updated readme (Ivan Wills)
+        Added documentation for functions (Ivan Wills)
+        Fixed spelling (Ivan Wills)
+        Fixed after name change (Ivan Wills)
+        Added missing closing of write handle to flush buffer (Ivan Wills)
+        Added removing temp file (Ivan Wills)
+        Added replacing original file (Ivan Wills)
+        Now resolving (Ivan Wills)
+        Added executable bit (Ivan Wills)
+        Fixed version (Ivan Wills)
+        Fixed package names (Ivan Wills)
+        Renamed files to remove "mine" as now plan to make taking either side of the merge (Ivan Wills)
+        Added description (Ivan Wills)
+        Flagging for future CPAN release (Ivan Wills)
+        Preparing to add code (Ivan Wills)
+        Initial commit (Ivan Wills)
