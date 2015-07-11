@@ -1,5 +1,10 @@
 Revision history for App-Git-Workflow-Command-Take
 
+0.2   2015-07-11
+        Updating for release of version 0.2
+        Added coveralls config (Ivan Wills)
+        Added Perl 5.22 to list of perl versions to build with (Ivan Wills)
+
 0.1     2015-06-14
         Fixed more left over name change issues (Ivan Wills)
         Updated readme (Ivan Wills)

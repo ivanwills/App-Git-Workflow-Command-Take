@@ -16,7 +16,7 @@ use App::Git::Workflow::Command qw/get_options/;
 use Path::Tiny;
 use File::Copy qw/copy/;
 
-our $VERSION  = 0.1;
+our $VERSION  = 0.2;
 our $workflow = App::Git::Workflow->new;
 our ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
 our %option;
@@ -104,7 +104,7 @@ App::Git::Workflow::Command::Take - Resolve merge conflicts with taking only one
 
 =head1 VERSION
 
-This documentation refers to git-take-mine version 0.1
+This documentation refers to git-take-mine version 0.2
 
 =head1 SYNOPSIS
 
