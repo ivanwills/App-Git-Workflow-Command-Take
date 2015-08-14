@@ -1,5 +1,9 @@
 Revision history for App-Git-Workflow-Command-Take
 
+0.3   2015-08-14
+        Updating for release of version 0.3
+        Removed creation of makefile (Ivan Wills)
+
 0.2   2015-07-11
         Updating for release of version 0.2
         Added coveralls config (Ivan Wills)
