@@ -100,7 +100,7 @@ __DATA__
 
 =head1 NAME
 
-App::Git::Workflow::Command::Take - Resolve merge conflicts with taking only one side of the conflict
+App::Git::Workflow::Command::Take - Resolve merge conflicts by only taking one side of each conflicted section
 
 =head1 VERSION
 
