@@ -122,6 +122,12 @@ This documentation refers to git-take-mine version 0.3
 
 =head1 DESCRIPTION
 
+C<git take> provides a way of quickly resolving conflicts by taking only one
+side of the conflict. It does this differently to C<git checkout --ours> /
+C<git checkout --theirs> as it only takes the conflicted part not the whole
+of one side of the merge. Where this can come in handy is for merging things
+with version number (eg pom.xml) where only the version number conflicts and
+there may be other changes in the file that should be taken.
 
 =head1 SUBROUTINES/METHODS
 
