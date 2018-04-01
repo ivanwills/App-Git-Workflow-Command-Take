@@ -3,12 +3,6 @@ count: 4
 default:
   restart: 0
   wait: 1
-editor:
-  files:
-    take:
-      - bin/git-take
-      - lib/App/Git/Workflow/Command/Take.pm
-      - t/take.t
 name: git-take
 terminals:
   1a:
@@ -18,10 +12,37 @@ terminals:
     watch:
       - lib
       - bin
-      - tests
+      - test
   2:
     edit: take
-  3: []
+editor:
+  helper: |
+    sub {
+        my ($self, $group) = @_;
+        return () if $group !~ /^cmd-/;
 
-  4: []
+        my ($cmd) = $group =~ /cmd-(.*)/;
+        my $lib = join '', map {ucfirst $_} split /-/, $cmd;
+        return (
+            "bin/git-$cmd",
+            "lib/App/Git/Workflow/Command/$lib.pm",
+            "t/$group.t",
+        );
+    }
+  helper_autocomplete: |
+    sub {
+      my ($pos, $args) = @_;
+      my $arg = $args->[$pos] || '';
+      my $argument = $arg && $arg ne 'edit' ? qr/^$arg/ : qr/./;
 
+      my @list = map {/^t\/cmd-(.*).t$/; $1} glob "t/cmd-*.t";
+
+      return @list;
+    }
+
+editor:
+  files:
+    take:
+      - bin/git-take
+      - lib/App/Git/Workflow/Command/Take.pm
+      - t/take.t
