@@ -29,6 +29,7 @@ sub run {
         'quiet|q',
         'ours|mine',
         'theirs',
+        'add|a',
     );
 
     my @conflicts = (
@@ -50,6 +51,10 @@ sub run {
             next PATH unless $conflict =~ /^\Q$path\E/;
 
             resolve($conflict);
+
+            if ( $option{add} ) {
+                $workflow->git->add($path);
+            }
 
             next CONFLICT;
         }
