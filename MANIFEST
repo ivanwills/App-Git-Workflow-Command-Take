@@ -6,6 +6,7 @@ LICENSE
 MANIFEST
 META.json
 META.yml
+MYMETA.json.lock
 README.pod
 t/00-load.t
 t/boilerplate.t
