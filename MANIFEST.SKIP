@@ -79,3 +79,4 @@ tags
 .editorconfig
 .vtide.yml
 .vtide/start.log
+MANIFEST.SKIP
